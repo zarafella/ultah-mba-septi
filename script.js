@@ -29,11 +29,91 @@ function blowOutCandle() {
     if (isCandleBlown) return;
     isCandleBlown = true;
     
-    // Matikan Api Lilin & Munculkan Asap
+    // 1. Matikan Api & Munculkan Asap
     const flame = document.getElementById('flame');
     const smoke = document.getElementById('smoke');
+    const tapHint = document.getElementById('tapHint');
+    
     if (flame) flame.classList.add('out');
     if (smoke) smoke.classList.add('active');
+    if (tapHint) tapHint.style.display = 'none';
+
+    // 2. Ubah Teks Petunjuk
+    const instruction = document.getElementById('instruction');
+    if (instruction) {
+        instruction.innerHTML = "✨ <b>Tiupanmu membawa sejuta doa baik!</b> ✨";
+        instruction.style.color = "#ffb6c1";
+    }
+
+    // 3. Efek Konfeti
+    try {
+        triggerConfettiBurst();
+    } catch (err) {
+        console.log("Confetti Error:", err);
+    }
+
+    // 4. Munculkan Kartu Doa & Scroll Otomatis
+    setTimeout(() => {
+        const wishesSection = document.getElementById('wishesSection');
+        if (wishesSection) {
+            wishesSection.classList.remove('hidden');
+            wishesSection.style.display = 'block';
+            wishesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 500);
+}
+
+function triggerConfettiBurst() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 90,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+
+        setTimeout(() => {
+            confetti({
+                particleCount: 50,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 }
+            });
+            confetti({
+                particleCount: 50,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 }
+            });
+        }, 200);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    createStars();
+
+    const cakeBox = document.getElementById('cakeBox');
+    if (cakeBox) {
+        // Gabungkan Click & Touchstart agar 100% responsif di HP
+        cakeBox.addEventListener('click', blowOutCandle);
+        cakeBox.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            blowOutCandle();
+        }, { passive: false });
+    }
+
+    const btnConfetti = document.getElementById('btnConfetti');
+    if (btnConfetti) {
+        btnConfetti.addEventListener('click', (e) => {
+            e.stopPropagation();
+            triggerConfettiBurst();
+        });
+        btnConfetti.addEventListener('touchstart', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            triggerConfettiBurst();
+        }, { passive: false });
+    }
+});
 
     // Ubah Teks Petunjuk
     const instruction = document.getElementById('instruction');
