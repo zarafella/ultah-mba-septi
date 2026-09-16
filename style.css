@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1f1135 0%, #3a1c5c 50%, #180928 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 40px 20px;
+}
+
+/* Stars Background Generator */
+.stars-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.container {
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+/* Header */
+.badge {
+    background: rgba(255, 182, 193, 0.2);
+    color: #ffb6c1;
+    border: 1px solid rgba(255, 182, 193, 0.4);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.header h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 3.2rem;
+    margin: 15px 0 10px;
+    line-height: 1.1;
+}
+
+.highlight {
+    background: linear-gradient(45deg, #ff758c, #ff7eb3, #ffcc70);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#instruction {
+    color: #d1c4e9;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+}
+
+/* Interactive CSS Cake Design */
+.cake-wrapper {
+    margin: 30px auto 40px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.cake {
+    position: relative;
+    width: 220px;
+    height: 160px;
+}
+
+.plate {
+    width: 260px;
+    height: 16px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -10px;
+    left: -20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.layer {
+    position: absolute;
+    width: 220px;
+    border-radius: 12px 12px 0 0;
+}
+
+.layer-bottom {
+    height: 50px;
+    background: #5d3a24;
+    bottom: 0;
+}
+
+.layer-middle {
+    height: 50px;
+    background: #ffb6c1;
+    bottom: 45px;
+}
+
+.layer-top {
+    height: 55px;
+    background: #f1789c;
+    bottom: 90px;
+}
+
+.icing {
+    height: 15px;
+    background: #fff;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Candle & Flame */
+.candle {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 45px;
+    background: repeating-linear-gradient(45deg, #ff4081, #ff4081 5px, #fff 5px, #fff 10px);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.wick {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 8px;
+    background: #555;
+}
+
+.flame {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 24px;
+    background: radial-gradient(ellipse at bottom, #ffeb3b 0%, #ff9800 60%, rgba(255,87,34,0) 100%);
+    border-radius: 50% 50% 20% 20%;
+    box-shadow: 0 0 15px #ffeb3b, 0 0 30px #ff9800;
+    animation: flicker 0.1s infinite alternate;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1) rotate(-1deg); }
+    100% { transform: translateX(-50%) scale(1.1) rotate(1deg); }
+}
+
+.flame.out {
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+}
+
+/* Smoke Effect when blown out */
+.smoke {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.smoke.active {
+    animation: riseSmoke 1.5s ease-out forwards;
+}
+
+@keyframes riseSmoke {
+    0% { opacity: 0.8; transform: translateX(-50%) translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-40px) scale(3); }
+}
+
+/* Wishes Section */
+.wishes-section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 20px;
+}
+
+.wishes-section.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    pointer-events: none;
+    display: none;
+}
+
+.card-main {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+.card-main h2 {
+    color: #ffb6c1;
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+}
+
+.main-p {
+    line-height: 1.7;
+    color: #e0d6f3;
+    font-size: 1.05rem;
+}
+
+/* Doa Grid Cards */
+.doa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.doa-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.doa-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.doa-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.doa-card h3 {
+    font-size: 1.1rem;
+    color: #ffd1dc;
+    margin-bottom: 8px;
+}
+
+.doa-card p {
+    font-size: 0.88rem;
+    color: #bbb;
+    line-height: 1.5;
+}
+
+/* Action Button */
+.btn-confetti {
+    padding: 14px 32px;
+    background: linear-gradient(45deg, #ff4081, #ff80ab);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 64, 129, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-confetti:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(255, 64, 129, 0.6);
+}
