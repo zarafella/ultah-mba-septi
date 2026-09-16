@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Mba Septi! 🎉</title>
-    <!-- Google Fonts Premium -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Confetti Library -->
+    <!-- Confetti JS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
     <div class="stars-container" id="stars"></div>
 
-    <div class="main-wrapper">
+    <main class="main-wrapper">
         <header class="header">
             <div class="badge">✨ Special Day ✨</div>
             <h1 class="sub-title">Happy Birthday</h1>
@@ -24,53 +24,51 @@
             <p id="instruction" class="instruction">👇 Tekan kue di bawah untuk meniup lilin!</p>
         </header>
 
-        <!-- Wadah Kue Interaktif (SVG Presisi) -->
-        <div class="cake-box" id="cakeBox">
-            <!-- Api Lilin & Asap -->
-            <div class="flame-container">
+        <!-- Kue Ulang Tahun Utama -->
+        <div class="cake-card" id="cakeCard">
+            <div class="flame-box">
                 <div class="flame" id="flame"></div>
                 <div class="smoke" id="smoke"></div>
             </div>
 
-            <!-- Desain SVG Kue Singel Vektor -->
             <svg class="cake-svg" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="candleStripe" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id="candleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#ff4081" />
                         <stop offset="100%" stop-color="#ff80ab" />
                     </linearGradient>
                 </defs>
 
-                <!-- Batang Lilin -->
-                <rect x="113" y="25" width="14" height="40" rx="4" fill="url(#candleStripe)" />
+                <!-- Lilin -->
+                <rect x="113" y="25" width="14" height="40" rx="4" fill="url(#candleGrad)" />
                 <rect x="119" y="17" width="2" height="9" fill="#444" />
 
-                <!-- Piring Kue -->
+                <!-- Piring -->
                 <ellipse cx="120" cy="155" rx="100" ry="14" fill="#e2e8f0" />
                 <ellipse cx="120" cy="152" rx="92" ry="12" fill="#ffffff" />
 
-                <!-- Lapisan Bawah (Cokelat) -->
+                <!-- Kue Cokelat -->
                 <path d="M 35 115 Q 120 135 205 115 L 205 142 Q 120 162 35 142 Z" fill="#5c3826" />
 
-                <!-- Lapisan Tengah (Krim Pink) -->
+                <!-- Kue Pink -->
                 <path d="M 35 85 Q 120 105 205 85 L 205 117 Q 120 137 35 117 Z" fill="#ff85a1" />
 
-                <!-- Lapisan Atas (Stroberi) -->
+                <!-- Kue Stroberi Top -->
                 <path d="M 35 60 Q 120 80 205 60 L 205 87 Q 120 107 35 87 Z" fill="#ff477e" />
 
-                <!-- Lelehan Krim Putih Toping -->
+                <!-- Krim Lelehan Putih -->
                 <ellipse cx="120" cy="60" rx="85" ry="15" fill="#ffffff" />
 
-                <!-- Buah Ceri Toping -->
+                <!-- Ceri -->
                 <circle cx="75" cy="52" r="7" fill="#d90429" />
                 <circle cx="120" cy="48" r="7" fill="#d90429" />
                 <circle cx="165" cy="52" r="7" fill="#d90429" />
             </svg>
 
-            <div class="tap-hint" id="tapHint">👆 Sentuh / Klik Di Sini</div>
+            <div class="tap-hint" id="tapHint">👆 Sentuh Kuemu Di Sini</div>
         </div>
 
-        <!-- Section Doa & Harapan -->
+        <!-- Section Ucapan & Doa -->
         <section class="wishes-section hidden" id="wishesSection">
             <div class="card-main">
                 <h2>Doa & Harapan Terbaik 🤲✨</h2>
@@ -109,175 +107,7 @@
                 <button class="btn-confetti" id="btnConfetti">🎉 Rayakan Lagi!</button>
             </div>
         </section>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-                <!-- Hiasan Ceri Toping -->
-                <div class="icing">
-                    <span class="cherry">🍒</span>
-                    <span class="cherry">🍒</span>
-                    <span class="cherry">🍒</span>
-                </div>
-                <!-- Lapisan Kue -->
-                <div class="layer layer-1"></div>
-                <div class="layer layer-2"></div>
-                <div class="layer layer-3"></div>
-                <div class="plate"></div>
-            </div>
-        </div>
-
-        <!-- Section Doa & Harapan -->
-        <section class="wishes-section hidden" id="wishesSection">
-            <div class="card-main">
-                <h2>Doa & Harapan Terbaik 🤲✨</h2>
-                <p class="main-p">
-                    Selamat ulang tahun untuk Mba Septi tersayang! Semoga di usiamu yang baru ini selalu dilimpahkan keberkahan, kesehatan, kebahagiaan, dan kemudahan dalam setiap langkah dan impianmu. 🌸
-                </p>
-            </div>
-
-            <div class="doa-grid">
-                <div class="doa-card">
-                    <div class="doa-icon">🤲</div>
-                    <h3>Kesehatan & Berkah</h3>
-                    <p>Semoga senantiasa diberikan kesehatan lahir batin dan umur yang penuh keberkahan.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">💖</div>
-                    <h3>Kedamaian Hati</h3>
-                    <p>Semoga selalu dikelilingi kebahagiaan, kedamaian, dan senyuman indah setiap hari.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">🌸</div>
-                    <h3>Kemudahan Urusan</h3>
-                    <p>Semoga setiap niat baik, impian, dan cita-cita Mba Septi dimudahkan oleh Allah SWT.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">✨</div>
-                    <h3>Rezeki Limpahan</h3>
-                    <p>Dilapangkan rezekinya dan selalu menjadi kebanggaan serta inspirasi bagi keluarga.</p>
-                </div>
-            </div>
-
-            <div class="action-box">
-                <button class="btn-confetti" onclick="triggerConfettiBurst(event)">🎉 Rayakan Lagi!</button>
-            </div>
-        </section>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-                    <div class="drip drip3"></div>
-                </div>
-                <div class="layer layer-middle"></div>
-                <div class="layer layer-bottom"></div>
-                <div class="plate"></div>
-            </div>
-        </div>
-
-        <section class="wishes-section hidden" id="wishesSection">
-            <div class="card-main">
-                <h2>Doa & Harapan Terbaik ✨</h2>
-                <p class="main-p">
-                    Selamat ulang tahun untuk Mba Septi tersayang! Semoga di usiamu yang baru ini, setiap langkahmu senantiasa dipenuhi keberkahan, kedamaian, dan kebahagiaan yang melimpah.
-                </p>
-            </div>
-
-            <div class="doa-grid">
-                <div class="doa-card">
-                    <div class="doa-icon">🤲</div>
-                    <h3>Keberkahan & Kesehatan</h3>
-                    <p>Semoga Allah senantiasa memberikan kesehatan fisik dan pikiran, serta umur yang penuh dengan keberkahan.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">💖</div>
-                    <h3>Kedamaian Hati</h3>
-                    <p>Semoga senyuman dan kebahagiaan selalu mengiringi hari-harimu, serta dijauhkan dari segala rasa cemas.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">🌸</div>
-                    <h3>Kemudahan Urusan</h3>
-                    <p>Semoga semua impian, rencana, dan cita-cita Mba Septi di tahun ini diijabah dan dipermudah jalan mewujudkannya.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">✨</div>
-                    <h3>Rezeki Berkah</h3>
-                    <p>Dilapangkan rezekinya, dikelilingi oleh orang-orang baik, dan selalu menjadi inspirasi bagi keluarga.</p>
-                </div>
-            </div>
-
-            <div class="action-box">
-                <button class="btn-confetti" onclick="triggerConfettiBurst()">🎉 Rayakan Lagi!</button>
-            </div>
-        </section>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-
-                <!-- Cake Layers -->
-                <div class="layer layer-top">
-                    <div class="icing"></div>
-                    <div class="drip drip1"></div>
-                    <div class="drip drip2"></div>
-                    <div class="drip drip3"></div>
-                </div>
-                <div class="layer layer-middle"></div>
-                <div class="layer layer-bottom"></div>
-                <div class="plate"></div>
-            </div>
-        </div>
-
-        <!-- Section Doa & Harapan (Tampil Setelah Lilin Ditiup) -->
-        <section class="wishes-section hidden" id="wishesSection">
-            <div class="card-main">
-                <h2>Doa & Harapan Terbaik ✨</h2>
-                <p class="main-p">
-                    Selamat ulang tahun untuk Mba Septi tersayang! Semoga di usiamu yang baru ini, setiap langkahmu senantiasa dipenuhi keberkahan, kedamaian, dan kebahagiaan yang melimpah.
-                </p>
-            </div>
-
-            <div class="doa-grid">
-                <div class="doa-card">
-                    <div class="doa-icon">🤲</div>
-                    <h3>Keberkahan & Kesehatan</h3>
-                    <p>Semoga Allah senantiasa memberikan kesehatan fisik dan pikiran, serta umur yang penuh dengan keberkahan.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">💖</div>
-                    <h3>Kedamaian Hati</h3>
-                    <p>Semoga senyuman dan kebahagiaan selalu mengiringi hari-harimu, serta dijauhkan dari segala rasa cemas.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">🌸</div>
-                    <h3>Kemudahan Urusan</h3>
-                    <p>Semoga semua impian, rencana, dan cita-cita Mba Septi di tahun ini diijabah dan dipermudah jalan mewujudkannya.</p>
-                </div>
-
-                <div class="doa-card">
-                    <div class="doa-icon">✨</div>
-                    <h3>Rezeki Berkah</h3>
-                    <p>Dilapangkan rezekinya, dikelilingi oleh orang-orang baik, dan selalu menjadi inspirasi bagi keluarga.</p>
-                </div>
-            </div>
-
-            <!-- Interactive Action Button -->
-            <div class="action-box">
-                <button class="btn-confetti" onclick="triggerConfettiBurst()">🎉 Rayakan Lagi!</button>
-            </div>
-        </section>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
