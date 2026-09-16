@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Mba Septi! 🎉</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Library Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Stars Animation Background -->
+    <div class="stars-container" id="stars"></div>
+
+    <div class="container">
+        <!-- Hero Title -->
+        <header class="header">
+            <span class="badge">Special Day ✨</span>
+            <h1>Happy Birthday, <br><span class="highlight">Mba Septi!</span> 🎂</h1>
+            <p id="instruction">Sentuh lilin di atas kue untuk meniupnya!</p>
+        </header>
+
+        <!-- Interactive Birthday Cake -->
+        <div class="cake-wrapper">
+            <div class="cake">
+                <!-- Candle & Flame -->
+                <div class="candle" id="candle" onclick="blowOutCandle()">
+                    <div class="flame" id="flame"></div>
+                    <div class="wick"></div>
+                    <div class="smoke" id="smoke"></div>
+                </div>
+
+                <!-- Cake Layers -->
+                <div class="layer layer-top">
+                    <div class="icing"></div>
+                    <div class="drip drip1"></div>
+                    <div class="drip drip2"></div>
+                    <div class="drip drip3"></div>
+                </div>
+                <div class="layer layer-middle"></div>
+                <div class="layer layer-bottom"></div>
+                <div class="plate"></div>
+            </div>
+        </div>
+
+        <!-- Section Doa & Harapan (Tampil Setelah Lilin Ditiup) -->
+        <section class="wishes-section hidden" id="wishesSection">
+            <div class="card-main">
+                <h2>Doa & Harapan Terbaik ✨</h2>
+                <p class="main-p">
+                    Selamat ulang tahun untuk Mba Septi tersayang! Semoga di usiamu yang baru ini, setiap langkahmu senantiasa dipenuhi keberkahan, kedamaian, dan kebahagiaan yang melimpah.
+                </p>
+            </div>
+
+            <div class="doa-grid">
+                <div class="doa-card">
+                    <div class="doa-icon">🤲</div>
+                    <h3>Keberkahan & Kesehatan</h3>
+                    <p>Semoga Allah senantiasa memberikan kesehatan fisik dan pikiran, serta umur yang penuh dengan keberkahan.</p>
+                </div>
+
+                <div class="doa-card">
+                    <div class="doa-icon">💖</div>
+                    <h3>Kedamaian Hati</h3>
+                    <p>Semoga senyuman dan kebahagiaan selalu mengiringi hari-harimu, serta dijauhkan dari segala rasa cemas.</p>
+                </div>
+
+                <div class="doa-card">
+                    <div class="doa-icon">🌸</div>
+                    <h3>Kemudahan Urusan</h3>
+                    <p>Semoga semua impian, rencana, dan cita-cita Mba Septi di tahun ini diijabah dan dipermudah jalan mewujudkannya.</p>
+                </div>
+
+                <div class="doa-card">
+                    <div class="doa-icon">✨</div>
+                    <h3>Rezeki Berkah</h3>
+                    <p>Dilapangkan rezekinya, dikelilingi oleh orang-orang baik, dan selalu menjadi inspirasi bagi keluarga.</p>
+                </div>
+            </div>
+
+            <!-- Interactive Action Button -->
+            <div class="action-box">
+                <button class="btn-confetti" onclick="triggerConfettiBurst()">🎉 Rayakan Lagi!</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
